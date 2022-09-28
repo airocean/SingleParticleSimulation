@@ -4,15 +4,15 @@ x_data=[0]
 y_data=[0]
 z_data=[0]
 t_0=0
-v_x=1
+v_x=10
 v_y=0
 v_z=0
 x=0
 y=0
 z=0
-d_t=1e-7
+d_t=1e-10
 m=9.1e-31
-q=1.6e-19
+q=-1.6e-19
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 
@@ -21,8 +21,8 @@ for t_0 in range(1,500000):
     t=d_t*t_0
     b_x=0
     b_y=0
-    b_z=1e-6
-    e_x=1e-6
+    b_z=1e-5+y*1
+    e_x=0
     e_y=0
     e_z=0
     x+=(v_x*d_t)
@@ -37,12 +37,12 @@ for t_0 in range(1,500000):
     v_x+=(f_x*d_t/m)
     v_y+=(f_y*d_t/m)
     v_z+=(f_z*d_t/m)
-    figure = ax.plot(x_data, y_data, z_data, c='r')
-    plt.pause(1e-100) #利用时间切片解决这个问题，十分机械、智障的方式
+    # figure = ax.plot(x_data, y_data, z_data, c='r')
+    # plt.pause(1e-100) #利用时间切片解决这个问题，十分机械、智障的方式
 # print(v_y)
 # plt.plot(x_data,y_data)
 
-# figure = ax.plot(x_data, y_data, z_data, c='r')
+figure = ax.plot(x_data, y_data, z_data, c='r')
 ax.set_xlabel("X/m")
 ax.set_ylabel("Y/m")
 ax.set_zlabel("Z/m")
