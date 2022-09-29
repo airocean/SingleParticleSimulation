@@ -1,29 +1,29 @@
 from cmath import sin
 import matplotlib.pyplot as plt
-x_data=[0]
-y_data=[0]
-z_data=[0]
+x_data=[]
+y_data=[]
+z_data=[]
 t_0=0
-v_x=10
-v_y=0
+v_x=0
+v_y=2
 v_z=0
 x=0
 y=0
 z=0
-d_t=1e-10
+d_t=1e-11
 m=9.1e-31
 q=-1.6e-19
 fig = plt.figure()
 ax = fig.gca(projection='3d')
-
-for t_0 in range(1,500000):
+ax.scatter(x,y,z,label='Initial Position')
+for t_0 in range(1,2000000):
     # 时间使用t
     t=d_t*t_0
     b_x=0
     b_y=0
-    b_z=1e-5+y*1
+    b_z=5e-5
     e_x=0
-    e_y=0
+    e_y=5e-4+100*t
     e_z=0
     x+=(v_x*d_t)
     y+=(v_y*d_t)
@@ -42,7 +42,7 @@ for t_0 in range(1,500000):
 # print(v_y)
 # plt.plot(x_data,y_data)
 
-figure = ax.plot(x_data, y_data, z_data, c='r')
+figure = ax.plot(x_data, y_data, z_data, label='Trajectory', c='r')
 ax.set_xlabel("X/m")
 ax.set_ylabel("Y/m")
 ax.set_zlabel("Z/m")
