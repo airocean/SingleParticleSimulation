@@ -5,25 +5,27 @@ x_data=[]
 y_data=[]
 z_data=[]
 t_0=0
-v_x=1e-6
-v_y=0
-v_z=0
+v_x=1
+v_y=1
+v_z=1
 x=0
-y=5e-6
+y=5
 z=0
-d_t=5e-15
-m=9.1e-31
-q=-1.6e-19
+d_t=1e-4
+m=1
+q=1
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 ax.scatter(x,y,z,label='Initial Position')
-for t_0 in range(1,300000):
+for t_0 in range(1,500000):
     # 时间使用t
     t=d_t*t_0
     # b_x=200*sqrt(x*x+y*y)*y/sqrt((x*x+y*y))
     # b_y=200*sqrt(x*x+y*y)*x/sqrt((x*x+y*y))
-    b_x=0.2*y/sqrt((x*x+y*y))
-    b_y=0.2*x/sqrt((x*x+y*y))
+    # b_x=0.2*y/sqrt((x*x+y*y))
+    # b_y=0.2*x/sqrt((x*x+y*y))
+    b_x=-10*y/(x*x+y*y)
+    b_y=10*x/(x*x+y*y)
     # b_x=2000*y
     # b_y=2000*x
     b_z=0
